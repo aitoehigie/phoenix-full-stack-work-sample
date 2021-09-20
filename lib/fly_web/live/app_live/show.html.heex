@@ -254,6 +254,9 @@
                 <h2 class="text-lg font-medium leading-6 text-gray-900">
                  Instances
                 </h2>
+                <p class="max-w-2xl mt-1 text-sm text-gray-500">
+                  Details
+                </p>
               </div>
               <div class="px-4 py-5 border-t border-gray-200 sm:px-6">
                 <div class="sm:col-span-2">
@@ -300,10 +303,10 @@
                               <tbody class="bg-white divide-y divide-gray-200">
                                 <%= for pg <- @app_status["allocations"] do %>
                                   <tr>
-                                    <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
+                                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                       <%= pg["id"] %>
                                     </td>
-                                    <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
+                                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                       <%= pg["taskName"] %>
                                     </td>
                                     <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
