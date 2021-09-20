@@ -5,6 +5,7 @@ defmodule FlyWeb.AppLive.Show do
   alias Fly.Client
   alias FlyWeb.Components.HeaderBreadcrumbs
 
+
   @impl true
   def mount(%{"name" => name}, session, socket) do
     socket =

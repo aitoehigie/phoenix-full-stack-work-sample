@@ -1,6 +1,6 @@
 <%= if @app_status == nil do %>
 <h1>No apps yet</h1>
-<%= else %>
+<% else %>
 <div>
   <div class="pb-32 bg-gray-800">
     <nav class="bg-gray-800">
@@ -196,15 +196,15 @@
               <div class="px-4 py-5 border-t border-gray-200 sm:px-6">
                 <%= if @app_status["deploymentStatus"] == nil do%>
                 <h1>No deployment data</h1>
-                <%= else %>
-                <%= for pg <- @app_status["deploymentStatus"] do %>
+                <% else %>
+                <%# for pg <- @app_status["deploymentStatus"] do %>
                 <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
                   <div class="sm:col-span-1">
                     <dt class="text-sm font-medium text-gray-500">
                       ID
                     </dt>
                     <dd class="mt-1 text-sm text-gray-900">
-                      <%= pg["id"] %>
+                      <%= @app_status["deploymentStatus"]["id"] %>
                     </dd>
                   </div>
                   <div class="sm:col-span-1">
@@ -212,7 +212,7 @@
                       Version
                     </dt>
                     <dd class="mt-1 text-sm text-gray-900">
-                      <%= pg["version"] %>
+                      <%= @app_status["deploymentStatus"]["version"] %>
                     </dd>
                   </div>
                   <div class="sm:col-span-1">
@@ -220,7 +220,7 @@
                       Status
                     </dt>
                     <dd class="mt-1 text-sm text-gray-900">
-                      <%= pg["status"] %>
+                      <%= @app_status["deploymentStatus"]["status"] %>
                     </dd>
                   </div>
                   <div class="sm:col-span-1">
@@ -228,7 +228,7 @@
                       Description
                     </dt>
                     <dd class="mt-1 text-sm text-gray-900">
-                      <%= pg["description"] %>
+                      <%= @app_status["deploymentStatus"]["description"] %>
                     </dd>
                   </div>
                   <div class="sm:col-span-2">
@@ -236,12 +236,12 @@
                       Instances
                     </dt>
                     <dd class="mt-1 text-sm text-gray-900">
-                      <%= pg["placedCount"] %>
+                      <%= @app_status["deploymentStatus"]["placedCount"] %>
                     </dd>
                   </div>
                 </dl>
                 <% end %>
-                <% end %>
+                <%# end %>
               </div>
             </div>
           </section>
