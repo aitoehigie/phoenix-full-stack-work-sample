@@ -1,3 +1,6 @@
+<%= if @app_status == nil do %>
+<h1>No apps yet</h1>
+<%= else %>
 <div>
   <div class="pb-32 bg-gray-800">
     <nav class="bg-gray-800">
@@ -122,131 +125,129 @@
               </div>
             </div>
           </section>
-          <section>
+          <!-- New layout -->
+          <section aria-labelledby="application-information-title">
             <div class="bg-white shadow sm:rounded-lg">
               <div class="px-4 py-5 sm:px-6">
-                <h2 class="text-lg font-medium leading-6 text-gray-900">
-                 App
+                <h2 id="application-information-title" class="text-lg font-medium leading-6 text-gray-900">
+                  Application
                 </h2>
+                <p class="max-w-2xl mt-1 text-sm text-gray-500">
+                  Details
+                </p>
               </div>
               <div class="px-4 py-5 border-t border-gray-200 sm:px-6">
-                <div class="sm:col-span-2">
-                  <dd class="mt-1 text-sm text-gray-900">
-                    <div class="flex flex-col">
-                      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                        <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-                          <div class="overflow-hidden border-b border-gray-200">
-                            <table class="min-w-full divide-y divide-gray-200">
-                              <thead class="bg-gray-50">
-                                <tr>
-                                  <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                    Name
-                                  </th>
-                                   <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                    Owner
-                                  </th>
-                                  <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                    version
-                                  </th>
-                                   <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                    Status
-                                  </th>
-                                  <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                    Hostname
-                                  </th>
-                                </tr>
-                              </thead>
-                              <tbody class="bg-white divide-y divide-gray-200">
-                                  <tr>
-                                    <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
-                                      <%= @app_status["name"] %>
-                                    </td>
-                                    <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
-                                      <%= @app_status["organization"]["slug"] %>
-                                    </td>
-                                    <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
-                                      <%= @app_status["version"] %>
-                                    </td>
-                                    <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
-                                      <%= @app_status["status"] %>
-                                    </td>
-                                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                      <%= @app_status["hostname"] %>
-                                    </td>
-                                  </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </dd>
-                </div>
+                <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
+                  <div class="sm:col-span-1">
+                    <dt class="text-sm font-medium text-gray-500">
+                      Name
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900">
+                      <%= @app_status["name"] %>
+                    </dd>
+                  </div>
+                  <div class="sm:col-span-1">
+                    <dt class="text-sm font-medium text-gray-500">
+                      Owner
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900">
+                      <%= @app_status["organization"]["slug"] %>
+                    </dd>
+                  </div>
+                  <div class="sm:col-span-1">
+                    <dt class="text-sm font-medium text-gray-500">
+                      Version
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900">
+                      <%= @app_status["version"] %>
+                    </dd>
+                  </div>
+                  <div class="sm:col-span-1">
+                    <dt class="text-sm font-medium text-gray-500">
+                      Status
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900">
+                      <%= @app_status["status"] %>
+                    </dd>
+                  </div>
+                  <div class="sm:col-span-2">
+                    <dt class="text-sm font-medium text-gray-500">
+                      Hostname
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900">
+                      <%= @app_status["hostname"] %>
+                    </dd>
+                  </div>
+                </dl>
               </div>
             </div>
           </section>
 
-          <section>
+          <section aria-labelledby="application-deployment-title">
             <div class="bg-white shadow sm:rounded-lg">
               <div class="px-4 py-5 sm:px-6">
-                <h2 class="text-lg font-medium leading-6 text-gray-900">
+                <h2 id="application-deployment-title" class="text-lg font-medium leading-6 text-gray-900">
                   Deployment Status
                 </h2>
+                <p class="max-w-2xl mt-1 text-sm text-gray-500">
+                  Details
+                </p>
               </div>
               <div class="px-4 py-5 border-t border-gray-200 sm:px-6">
-                <div class="sm:col-span-2">
-                  <dd class="mt-1 text-sm text-gray-900">
-                    <div class="flex flex-col">
-                      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                        <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-                          <div class="overflow-hidden border-b border-gray-200">
-                            <table class="min-w-full divide-y divide-gray-200">
-                              <thead class="bg-gray-50">
-                                <tr>
-                                  <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                    ID
-                                  </th>
-                                  <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                    Version
-                                  </th>
-                                  <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                    Status
-                                  </th>
-                                  <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                    Description
-                                  </th>
-                                  <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                    Instances
-                                  </th>
-                                </tr>
-                              </thead>
-                              <tbody class="bg-white divide-y divide-gray-200">
-
-                                  <tr>
-                                  <%= for pg <- @app_status["allocations"] do %>
-                                    <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
-                                      <%= pg["id"] %>
-                                    </td>
-                                    <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
-                                      <%= pg["version"] %>
-                                    </td>
-                                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                      <%= @app_status["deploymentStatus"] %>
-                                    </td>
-                                    <% end %>
-                                  </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </dd>
-                </div>
+                <%= if @app_status["deploymentStatus"] == nil do%>
+                <h1>No deployment data</h1>
+                <%= else %>
+                <%= for pg <- @app_status["deploymentStatus"] do %>
+                <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
+                  <div class="sm:col-span-1">
+                    <dt class="text-sm font-medium text-gray-500">
+                      ID
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900">
+                      <%= pg["id"] %>
+                    </dd>
+                  </div>
+                  <div class="sm:col-span-1">
+                    <dt class="text-sm font-medium text-gray-500">
+                      Version
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900">
+                      <%= pg["version"] %>
+                    </dd>
+                  </div>
+                  <div class="sm:col-span-1">
+                    <dt class="text-sm font-medium text-gray-500">
+                      Status
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900">
+                      <%= @app_status["status"] %>
+                    </dd>
+                  </div>
+                  <div class="sm:col-span-1">
+                    <dt class="text-sm font-medium text-gray-500">
+                      Description
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900">
+                      <%= @app_status["description"] %>
+                    </dd>
+                  </div>
+                  <div class="sm:col-span-2">
+                    <dt class="text-sm font-medium text-gray-500">
+                      Instances
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900">
+                      <%= @app_status["placedCount"] %>
+                    </dd>
+                  </div>
+                </dl>
+                <% end %>
+                <% end %>
               </div>
             </div>
           </section>
+          <!-- End of new layout -->
 
+          
           <section>
             <div class="bg-white shadow sm:rounded-lg">
               <div class="px-4 py-5 sm:px-6">
@@ -288,23 +289,46 @@
                                   <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                     Checks
                                   </th>
+                                  <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                   Restarts
-                                </tr>
+                                </th>
                                 <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                   Created
                                 </th>
+                                </tr>
                               </thead>
                               <tbody class="bg-white divide-y divide-gray-200">
-                                <%= for pg <- @app["processGroups"] do %>
+                                <%= for pg <- @app_status["allocations"] do %>
                                   <tr>
                                     <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
-                                      <%= pg["name"] %>
+                                      <%= pg["id"] %>
                                     </td>
                                     <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
-                                      <%= pg["regions"] %>
+                                      <%= pg["taskName"] %>
                                     </td>
                                     <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                      <%= pg["vmSize"]["name"] %>
+                                      <%= pg["version"] %>
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                      <%= pg["region"] %>
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                      <%= pg["desiredStatus"] %>
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                      <%= pg["status"] %>
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                      <%= pg["healthy"] %>
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                      <%= Enum.map(pg["checks"], &(&1["status"])) %>
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                      <%= pg["restarts"] %>
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                      <%= pg["createdAt"] %>
                                     </td>
                                   </tr>
                                 <% end %>
@@ -380,3 +404,4 @@
     </main>
   <% end %>
 </div>
+<% end %>
