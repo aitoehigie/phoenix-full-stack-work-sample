@@ -4,7 +4,7 @@ defmodule FlyWeb.AppLive.Status do
 
   alias Fly.Client
 
-
+  @refresh_rate 3000
 
   def mount(%{"name" => name}, session, socket) do
     socket =
@@ -20,6 +20,7 @@ defmodule FlyWeb.AppLive.Status do
 
     # Only make the API call if the websocket is setup. Not on initial render.
     if connected?(socket) do
+      start_refresh(@refresh_rate)
       {:ok, fetch_app(socket)}
     else
       {:ok, socket}
@@ -67,6 +68,15 @@ defmodule FlyWeb.AppLive.Status do
       "dead" -> "text-red-800"
       _ -> "text-yellow-800"
     end
+  end
+
+  @impl true
+  def handle_info(:clock_tick, socket) do
+    {:noreply, fetch_app(socket)}
+  end
+
+  defp start_refresh(refresh_rate) do
+    :timer.send_interval(refresh_rate, self(), :clock_tick)
   end
 
   def preview_url(app) do
