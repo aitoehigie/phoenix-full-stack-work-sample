@@ -1,12 +1,12 @@
-# fly.toml file generated for billowing-resonance-2034 on 2021-09-21T04:17:27+01:00
+# fly.toml file generated for wispy-tree-992 on 2021-09-21T07:37:26+01:00
 
-app = "billowing-resonance-2034"
+app = "wispy-tree-992"
 
 kill_signal = "SIGTERM"
 kill_timeout = 5
+processes = []
 
 [env]
-auto_rollback = false
 
 [experimental]
   allowed_public_ports = []
@@ -33,7 +33,7 @@ auto_rollback = false
     port = 443
 
   [[services.tcp_checks]]
-    grace_period = "30s"
+    grace_period = "1s"
     interval = "15s"
     restart_limit = 6
     timeout = "2s"
