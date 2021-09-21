@@ -3,6 +3,7 @@
  ## What I built
  - Created an app_status function that queries the GraphQL endpoint for information about the applications belonging to the authenticated user.
 - I added application, deployment, and instance sections to the show.html.heex live templates. These sections are used to display more information about each application.
+- Created a live component to display the application information. This live component queries the graphql API for data and ensures that the dashboard always displays current information about applications.
 
 ## What I did not not build
 I built all the required features of the project.
@@ -12,7 +13,8 @@ If I had more time to work on the project, I would do the following:
  - Include in the dashboard, actions to set up, modify, scale, shutdown, and destroy applications. Thereby making it more dynamic, improving on its present observer, read-only state.
 - Redesign the template pages.
 - Increase the variety of data retrieved from the GraphQL endpoint. Enriching the dashboard with information like app logs, certificates, usage levels, configuration, databases, etc.
-- Add tests to the project to verify that the feature works as expected. This will be a great improvement over the current manual human testing.
+- Add tests to the project to verify that the feature works as expected. This will be a great improvement over the current manual human testing. 
+- Add more handlers for edge cases in the display of data.
 
 ## How I'd determine if this feature is successful
 
